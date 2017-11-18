@@ -6,6 +6,8 @@ class Event < ApplicationRecord
   validates_format_of :friendly_id, :with => /\A[a-z0-9\-]+\z/
   validates_inclusion_of :status, :in => STATUS
   
+  belongs_to :category, :optional => true
+  
   def to_param
     self.friendly_id
   end
